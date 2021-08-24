@@ -1,0 +1,60 @@
+Minna 'Crabby' Lynk;1;10;100;1;true
+Tupper 'Two-Teeth' Browning;1;10;100;1;true
+Crofton 'Calmness' Tyndall;1;10;100;1;true
+Glued-Handed Henry;1;10;100;1;true
+Sybil 'Hunter' Walthorn;1;10;100;1;true
+Grimshaw 'Bashed' Swett;1;10;100;1;true
+Anne Bonny;2;10;100;2;true
+Mary Read;2;10;100;2;true
+Weldon 'Gentle Heart' Reeves;2;10;100;2;true
+Deverell 'Boatswain' Abraham;2;10;100;2;true
+Stanbury 'The Calm' Luke;2;10;100;2;true
+Minster 'Lazy Eye' Farnham;2;10;100;2;true
+Stratford 'Clever' Nebula;3;12;100;1;true
+Sedgley 'Silver-Eye' Snape;3;12;100;1;true
+Ronni 'Scar Face' Oxworth;3;12;100;1;true
+Wolcott 'Hooked' Rudge;3;12;100;1;true
+Duarte 'Freebooter' Lazarus;3;12;100;1;true
+Aldwin 'Silver Tooth' Victor;3;12;100;1;true
+Grover 'Mad Eyes' Spalding;4;10;100;1;true
+Jarvis 'Weird'o' Vexx;4;10;100;1;true
+Ubul Toothless;4;10;100;1;true
+Jack Half-Headless;4;10;100;1;true
+The Victator;4;10;100;1;true
+Ina 'Calmness' Melling;4;10;100;1;true
+Keyes 'Crocked' Rutland;5;10;100;1;true
+Meldon 'Shaded' Goodwin;5;10;100;1;true
+Bridger 'Immortal' Hallewell;5;10;100;1;true
+Kimberly 'Two-Teeth' Smit;5;10;100;1;true
+Read 'Mumbling' Larc;5;10;100;1;true
+Manton 'Bird Eye' Lancaster;5;10;100;1;true
+Augusta 'Landlubber' Crain;6;10;100;1;true
+Luella 'Mad Eye' Currington;6;10;100;1;true
+Aline 'Grimace' Vexx;6;10;100;1;true
+Consuelo 'Whale-Eye' Penny;6;10;100;1;true
+Harper 'Grisly' Bonney;6;10;100;1;true
+Mason 'Treasure' Nottley;6;10;100;1;true
+Alder 'Iron Chest' Brady;7;10;106;1;true
+Sallie 'Frenzied' Orfeo;7;10;106;1;true
+Templeton 'Four-Eyes' Tydes;7;10;106;1;true
+Aylward 'Toothless' Salvodore;7;10;106;1;true
+Dwight 'The Idiot' Hale;7;10;106;1;true
+Jerrick 'Devil's Smile' Drachen;7;10;106;1;true
+Ridley 'Pirate' Thorp;8;10;100;1;true
+Wentworth 'Rough Dog' Leviathan;8;10;100;1;true
+Christina 'Braveheart' Barclay;8;10;100;1;true
+Stetson 'Trickster' Bradford;8;10;100;1;true
+Macy 'Parley' Gladstone;8;10;100;1;true
+Leighton 'First Mate' Frederik;8;10;100;1;true
+Gilson 'Mutiny' Brownrigg;9;10;100;1;true
+Tranter 'Sly' Rudge;9;10;100;1;true
+Bliss 'Shark Bait' Petrik;9;10;100;1;true
+Stanislaw 'Toothless' Storm;9;10;100;1;true
+Freeman 'Seafarer' Mildenhall;9;10;100;1;true
+Georgia 'Scurvy' Rutherford;9;10;100;1;true
+Burbank 'Merciless' Lucifer;10;10;100;1;true
+Kirk 'Crow's Nest' Graeme;10;10;100;1;true
+Wadsworth 'The Bright' Perry;10;10;100;1;true
+Kenley 'Con Artist' Gartside;10;10;100;1;true
+Wadley 'Betrayer' Nottley;10;10;100;1;true
+Konen the Barbarian;10;10;100;1;true

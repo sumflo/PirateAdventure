@@ -1,0 +1,20 @@
+1;a bottle of earth;TREASURE;750
+2;the compass of the will;TREASURE;2000
+3;Cortez's chest;TREASURE;1500
+4;prisoner;TREASURE;500
+5;golden hand of king Midas;CURSE;750
+6;annoying undead monkey;CURSE;1000
+7;dragon egg;CURSE;500
+8;fill-full rum barrels;SYMBOL;0
+9;pirate flag;SYMBOL;0
+10;red sails;SYMBOL;0
+11;1 cannon;EQUIPMENT;200
+12;2 cannon;EQUIPMENT;400
+13;7 bottle rum;EQUIPMENT;70
+14;14 bottle rum;EQUIPMENT;140
+15;21 bottle rum;EQUIPMENT;210
+16;treasure chest;CURRENCY;250
+17;a very large ruby;CURRENCY;200
+18;sapphire crown;CURRENCY;150
+19;bag of emerald;CURRENCY;100
+20;bag of gold;CURRENCY;50
