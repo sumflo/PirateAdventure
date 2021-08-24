@@ -16,6 +16,26 @@ public class Captain extends Pirate{
     }
 
     //TODO: toString
+    public String toString(){
+
+        String nl = System.getProperty("line.separator");
+
+        String captainData = "Name: " + this.getName()+ nl
+                + "----------------------------------------" + nl
+                + "Captain's name: " + this.getCaptainID() + nl
+                + "Strength: " + this.getStrength() + nl
+                + "Max HP: " + this.getMaxHealthPoint() + nl
+                + "HP: " + this.getHealthPoint() + nl
+                + "Drunk level: " + this.getDrunkLevel() + nl
+                + "Can Fight? - " + this.isCanFight() + nl
+                + "Ship: " + this.ship.getName() + nl
+                + "Rum in stock: " + this.rumOwned + nl
+                + "Won fights: " + this.fightCounter + nl
+                + "Story: " + this.story + nl
+                + "Is he alive? - " + this.alive + nl;
+
+        return captainData;
+    }
 
     public void attack(Captain enemyCaptain, Dice dice){
         enemyCaptain.setHealthPoint(enemyCaptain.getHealthPoint() - (this.getStrength() + this.getDrunkLevel().level * (dice.throwDice12())));

@@ -15,7 +15,7 @@ public class Ship {
     private int hitPoint;
     private int numberOfCannons;
     private Condition state;
-    private List<Treasure> cargo;
+    private List<Treasure> cargo; //TODO kijavítani (= new ArrayList<>()) és az össze shelyen, ahol feltöltöttem a rakományt kivenni a listalétrehozást.....
     private List<Pirate> crew = new ArrayList<>();
     private int ID;
 
@@ -45,6 +45,20 @@ public class Ship {
     }
 
     //TODO: toString
+    public void showShip(){
+
+        System.out.println("Name: " + this.name + "\n"
+                + "----------------------------------------" + "\n"
+                + "Captain's name: " + this.ID + "\n"
+                + "Attack power: " + this.attackPower + "\n"
+                + "Current HP: " + this.hitPoint + "\n"
+                + "Number of cannons: " + this.numberOfCannons + "\n"
+                + "Condition: " + this.state + "\n"
+                + "Cargo: " + this.cargo + "\n"
+                + "Crew: " + this.crew);
+
+    }
+
     public void showCargo(){
         System.out.println("Your cargo:");
         System.out.println("-----------");

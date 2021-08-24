@@ -21,6 +21,12 @@ public class RepairBoat {
         int interaction = getChoiceFromRepairBoatMenu(captain.getShip());
         System.out.println();
 
+        executeInteraction(interaction, captain);
+        System.out.println();
+
+        showChanges(interaction, captain);
+        System.out.println();
+
     }
 
     /** Felajánlja a lehetséges interakciókat attól függően, hogy mi a játékos hajójának a rakománya.
@@ -73,16 +79,27 @@ public class RepairBoat {
         return interaction;
     }
 
-    private void executeInteraction(int interaction, Ship captainsShip){
+    private void executeInteraction(int interaction, Captain captain){
+
+        Ship captainsShip = captain.getShip();
 
         if (interaction == 0){
             System.out.println(captainsShip.getName() + " continued on its way to another adventure. What will tomorrow bring to the captain?");
         }else if(interaction == 1){
-
+           repair(captainsShip);
         }else if(interaction == 2){
-
+            installCannons(captainsShip);
         }else if(interaction == 3){
+            fillRum(captain);
+        }
+    }
 
+    private void showChanges(int interaction, Captain captain){
+
+        if(interaction == 1 || interaction == 2){
+            captain.getShip().showShip();
+        }else if(interaction == 3){
+            System.out.println(captain.toString());
         }
     }
 
@@ -172,6 +189,82 @@ public class RepairBoat {
             System.out.println("The chosen interaction is invalid.");
             return false;
         }
+    }
+
+    public void repair(Ship captainsShip){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the number of the selected item. This will increase the hit point of your ship.");
+        System.out.println("Watch out! You can only select one item in this round!");
+
+        int choice = scanner.nextInt();
+
+        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice){
+                captainsShip.setHitPoint(captainsShip.getHitPoint() + captainsShip.getCargo().get(i).getValue());
+                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+            }
+        }
+        //TODO: ellenőrzés a valid bevitelről
+    }
+
+    public void installCannons(Ship captainsShip){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the cannon(s) you want to install.");
+        System.out.println("You can only select one item in this round!");
+
+        int choice = scanner.nextInt();
+
+        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("1")){
+                captainsShip.setNumberOfCannons(captainsShip.getNumberOfCannons() + 1);
+                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+            }else if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("2")){
+                captainsShip.setNumberOfCannons(captainsShip.getNumberOfCannons() + 2);
+                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+            }
+        }
+        //TODO: ellenőrzés a valid bevitelről
+    }
+
+    public void fillRum(Captain captain){
+
+        Ship captainsShip = captain.getShip();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the number of rums with which you want to fill the captain's supply.");
+        System.out.println("Watch out! You can only select one item in this round!");
+
+        int choice = scanner.nextInt();
+
+        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("7")){
+                captain.setRumOwned(captain.getRumOwned() + 7);
+                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+            }else if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("14")){
+                captain.setRumOwned(captain.getRumOwned() + 14);
+                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+            }else if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("21")){
+                captain.setRumOwned(captain.getRumOwned() + 21);
+                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+            }
+        }
+        //TODO: ellenőrzés a valid bevitelről
+    }
+
+    /** Végigmegy a rakomány elemein, ha megegyezi az éppen vizsgált elem TreasureID-ja a bevitt választással,
+     * true-t ad vissza, és kilép a ciklusból. Ha nincs ilyen elem a rakományban, false az eredmény.*/
+    public boolean isValidItem(int choice, Ship captainsShip){
+
+        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice){
+                return true;
+            }
+        }
+        return  false;
     }
 
 }

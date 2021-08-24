@@ -3,6 +3,7 @@ package highSeas.controller;
 import highSeas.characters.PlayableCharacters;
 import highSeas.crew.Captain;
 import highSeas.enums.Rum;
+import highSeas.events.RepairBoat;
 import highSeas.seas.BattleField;
 
 import java.util.ArrayList;
@@ -53,7 +54,8 @@ public class GameController {
                     battle.shipBattle(captain, getRandomCaptain(captainList), dice);
                     break;
                 case 2:
-                    //event
+                    RepairBoat repairBoat = new RepairBoat();
+                    repairBoat.repairBoat(captain);
                     break;
                 case 3:
                     battle.boardBattle(captain, getRandomCaptain(captainList), dice);

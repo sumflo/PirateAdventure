@@ -17,7 +17,7 @@ public class Pirate {
     public Pirate() {
     }
 
-    public String toString(){
+   /* public String toString(){
 
         String nl = System.getProperty("line.separator");
 
@@ -31,7 +31,7 @@ public class Pirate {
                 + "Can Fight? - " + this.canFight;
 
         return pirateData;
-    }
+    }*/
 
     public void attack(Pirate enemyPirate, Dice dice){
         int damage = this.strength + this.drunkLevel.level * (dice.throwDice6());
