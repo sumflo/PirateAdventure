@@ -197,6 +197,8 @@ public class DocReader {
             treasure.setType(TreasureType.SYMBOL);
         }else if(parts[2].equals("EQUIPMENT")){
             treasure.setType(TreasureType.EQUIPMENT);
+        }else if(parts[2].equals("CURRENCY")) {
+            treasure.setType(TreasureType.CURRENCY);
         }
 
         treasure.setValue(Integer.parseInt(parts[3]));

@@ -1,6 +1,7 @@
 package highSeas;
 
 import highSeas.controller.GameController;
+import highSeas.treasure.Treasure;
 import highSeas.utils.DocReader;
 import highSeas.utils.FileRouting;
 
@@ -15,6 +16,9 @@ public class Main {
         GameController game = new GameController();
         game.startStory();
 
+        /*DocReader docReader = new DocReader();
+        List<Treasure> treasureList = docReader.convertDocToTreasureArrayList(FileRouting.getSourceTreasure());
 
+        System.out.println(treasureList);*/
     }
 }

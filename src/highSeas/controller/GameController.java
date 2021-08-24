@@ -51,7 +51,6 @@ public class GameController {
                     return;
                 case 1:
                     battle.shipBattle(captain, getRandomCaptain(captainList), dice);
-                   //shipfight
                     break;
                 case 2:
                     //event
