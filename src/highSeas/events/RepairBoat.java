@@ -255,31 +255,45 @@ public class RepairBoat {
         //TODO: ellenőrzés a valid bevitelről
     }
 
-    /** Végigmegy a rakomány elemein, ha megegyezi az éppen vizsgált elem TreasureID-ja a bevitt választással,
-     * true-t ad vissza, és kilép a ciklusból. Ha nincs ilyen elem a rakományban, false az eredmény.
-     * -->> ellenőrzi, hogy a rakomány tartalmazz-e a bevitt TreasureID-jű Treasure-t*/
-    private boolean containsCargo(int choice, Ship captainsShip){
+    /** Ellenőrzi, hogy a válsztott elem alkalmas-e a javításra.
+     * + van-e a rakományban ilyen elem */
+    private boolean isValidForRepair(int choice, Ship captainsShip){
 
         for (int i = 0; i < captainsShip.getCargo().size(); i++) {
-            if(captainsShip.getCargo().get(i).getTreasureID() == choice){
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice &&
+                    captainsShip.getCargo().get(i).getValue() != 0){
                 return true;
             }
         }
-        return  false;
+        return false;
     }
 
-    /** Ellenőrzi, hogy*/
-    private boolean isValidForRepair(){
+    /** Ellenőrzi, hogy a válsztott elem alkalmas-e az ágyú felhelyezésre.
+     * + van-e a rakományban ilyen elem */
+    private boolean isValidForInstallCannon(int choice, Ship captainsShip){
+
+        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice &&
+                    captainsShip.getCargo().get(i).getName().contains("cannon") &&
+                    captainsShip.getCargo().get(i).getType().equals(TreasureType.EQUIPMENT)){
+                return true;
+            }
+        }
 
         return false;
     }
 
-    private boolean isValidForInstallCannon(){
+    /** Ellenőrzi, hogy a válsztott elem alkalmas-e a rumtöltésre.
+     * + van-e a rakományban ilyen elem */
+    private boolean isValidForFillRum(int choice, Ship captainsShip){
 
-        return false;
-    }
-
-    private boolean isValidForFillRum(){
+        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+            if(captainsShip.getCargo().get(i).getTreasureID() == choice &&
+                    captainsShip.getCargo().get(i).getName().contains("rum") &&
+                    captainsShip.getCargo().get(i).getType().equals(TreasureType.EQUIPMENT)){
+                return true;
+            }
+        }
 
         return false;
     }
