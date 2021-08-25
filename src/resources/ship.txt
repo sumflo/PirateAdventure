@@ -5,6 +5,6 @@ Queen Anne's Revenge;25;1000;5;normal;4
 Bald Grace;25;1000;5;normal;5
 My Revenge;25;1000;5;normal;6
 Mother;25;1000;5;normal;7
-Golden Hind;25;1250;5;normal;8
+Golden Hind;25;1500;5;normal;8
 Satisfaction;35;1000;5;normal;9
 Black Widow;25;1000;5;normal;10

@@ -38,7 +38,13 @@ public class Captain extends Pirate{
     }
 
     public void attack(Captain enemyCaptain, Dice dice){
-        enemyCaptain.setHealthPoint(enemyCaptain.getHealthPoint() - (this.getStrength() + this.getDrunkLevel().level * (dice.throwDice12())));
+
+        int damage = (this.getStrength() + this.getDrunkLevel().level * (dice.throwDice12()));
+        enemyCaptain.setHealthPoint(enemyCaptain.getHealthPoint() - (this.getStrength() + damage));
+
+        System.out.println("Captain" + this.getName() + " damaged " + damage + ".");
+        System.out.println("Captain" + enemyCaptain.getName() + " has " + enemyCaptain.getHealthPoint() + " HP now.");
+        System.out.println();
     }
 
     /** az enemy rumkészletét nem szükséges 0-ra állítani, mivel nem foglalkozunk vele a továbbiakban.*/

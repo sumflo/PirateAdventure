@@ -3,6 +3,7 @@ package highSeas.ship;
 import highSeas.controller.Dice;
 import highSeas.crew.Pirate;
 import highSeas.enums.Condition;
+import highSeas.enums.TreasureType;
 import highSeas.treasure.Treasure;
 
 import java.util.ArrayList;
@@ -26,21 +27,17 @@ public class Ship {
 
         int damage = this.attackPower + this.numberOfCannons * (dice.throwDice12());
 
-        for (int i = 0; i < this.cargo.size(); i++) {
-            if(this.cargo.get(i).getTreasureID() == 6){
-                int throwResult = dice.throwDice20();
-                if(throwResult == 1){
-                    System.out.println("Oh no! The undead monkey jumped on the Captain " +  /*this.crew.get(0).getCaptain() +*/ "'s head and took his hoe. The whole crew started chasing it. All the cannons were set aside.");
-                }
-            }else{
-                enemyShip.setHitPoint(enemyShip.getHitPoint() - damage);
-                System.out.println(this.name + " damaged " + damage + ".");
-                System.out.println(enemyShip.getName() + " has " + enemyShip.getHitPoint() + " HP now.");
-                System.out.println();
+        if(isUndeadMonkeyOnTheBoard(this.cargo)){
+            int throwResult = dice.throwDice20();
+            if(throwResult == 1){
+                System.out.println("Oh no! The undead monkey jumped on the Captain " +  /*this.crew.get(0).getCaptain() +*/ "'s head and took his hoe. The whole crew started chasing it. All the cannons were set aside.");
             }
+        }else{
+            enemyShip.setHitPoint(enemyShip.getHitPoint() - damage);
+            System.out.println(this.name + " damaged " + damage + ".");
+            System.out.println(enemyShip.getName() + " has " + enemyShip.getHitPoint() + " HP now.");
+            System.out.println();
         }
-
-
 
     }
 
@@ -80,6 +77,15 @@ public class Ship {
         }else{
             this.state = Condition.overpowered;
         }
+    }
+
+    private boolean isUndeadMonkeyOnTheBoard(List<Treasure> cargo){
+        for (int i = 0; i < cargo.size(); i++) {
+            if(cargo.get(i).getTreasureID() == 6){
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getName() {

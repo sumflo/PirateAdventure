@@ -12,6 +12,13 @@ public class Treasure {
     public Treasure() {
     }
 
+    public Treasure(int treasureID, String name, TreasureType type, int value) {
+        this.treasureID = treasureID;
+        this.name = name;
+        this.type = type;
+        this.value = value;
+    }
+
     public String toString(){
         return "(" + this.treasureID + ")" + " " + this.name + " - value: " + this.value;
     }

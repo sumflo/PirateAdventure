@@ -90,6 +90,8 @@ public class PlayableCharacters {
                     this.captains.get(i).getShip().getCargo().add(treasureList.get(j));
                 }else if(this.captains.get(i).getCaptainID() == 7 && treasureList.get(j).getTreasureID() == 1){
                     this.captains.get(i).getShip().getCargo().add(treasureList.get(j));
+                }else if(this.captains.get(i).getCaptainID() == 8 && treasureList.get(j).getTreasureID() == 6){
+                    this.captains.get(i).getShip().getCargo().add(treasureList.get(j));
                 }else if(this.captains.get(i).getCaptainID() == 10 && treasureList.get(j).getTreasureID() == 8){
                     this.captains.get(i).getShip().getCargo().add(treasureList.get(j));
                 }
