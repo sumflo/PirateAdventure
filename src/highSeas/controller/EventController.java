@@ -11,15 +11,6 @@ public class EventController {
 
     /*private List<String> events = new ArrayList<>();
 
-
-    public void koko(Captain captain){
-
-    }
-
-    public void seaStorm(Captain captain){
-
-    }
-
     public void krakenAttack(Captain captain){
         System.out.println("Suddenly the sea begins to rage. Nowhere is a cloud in the sky, not even the wind blowing." +
                 " What's happening?! A giant tentacle rises from the depths. This is the Kraken!");
@@ -35,7 +26,6 @@ public class EventController {
                 System.out.println("(4) You take the 'a bottle of earth' in your hands and raise it high to threaten the Kraken.");
             }
         }
-
 
     }*/
 
