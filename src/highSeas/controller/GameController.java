@@ -54,7 +54,7 @@ public class GameController {
                     battle.shipBattle(captain, getRandomCaptain(captainList), dice);
                     break;
                 case 2:
-                    RepairBoat repairBoat = new RepairBoat();
+                    RepairBoat repairBoat = new RepairBoat(); // csak tesztelésre
                     repairBoat.repairBoat(captain);
                     break;
                 case 3:
@@ -103,7 +103,7 @@ public class GameController {
         for (int i = 0; i < captainList.size(); i++) {
             if(ID == captainList.get(i).getCaptainID()){
                 Captain captain = captainList.get(i);
-                captainList.remove(i); // így működik, vagy ki kell menteni remove előtt?
+                captainList.remove(i);
                 return captain;
             }
         }

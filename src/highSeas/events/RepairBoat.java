@@ -256,8 +256,9 @@ public class RepairBoat {
     }
 
     /** Végigmegy a rakomány elemein, ha megegyezi az éppen vizsgált elem TreasureID-ja a bevitt választással,
-     * true-t ad vissza, és kilép a ciklusból. Ha nincs ilyen elem a rakományban, false az eredmény.*/
-    public boolean isValidItem(int choice, Ship captainsShip){
+     * true-t ad vissza, és kilép a ciklusból. Ha nincs ilyen elem a rakományban, false az eredmény.
+     * -->> ellenőrzi, hogy a rakomány tartalmazz-e a bevitt TreasureID-jű Treasure-t*/
+    private boolean containsCargo(int choice, Ship captainsShip){
 
         for (int i = 0; i < captainsShip.getCargo().size(); i++) {
             if(captainsShip.getCargo().get(i).getTreasureID() == choice){
@@ -265,6 +266,22 @@ public class RepairBoat {
             }
         }
         return  false;
+    }
+
+    /** Ellenőrzi, hogy*/
+    private boolean isValidForRepair(){
+
+        return false;
+    }
+
+    private boolean isValidForInstallCannon(){
+
+        return false;
+    }
+
+    private boolean isValidForFillRum(){
+
+        return false;
     }
 
 }
