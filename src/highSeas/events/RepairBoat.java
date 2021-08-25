@@ -200,13 +200,14 @@ public class RepairBoat {
 
         int choice = scanner.nextInt();
 
-        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
-            if(captainsShip.getCargo().get(i).getTreasureID() == choice){
-                captainsShip.setHitPoint(captainsShip.getHitPoint() + captainsShip.getCargo().get(i).getValue());
-                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+        do {
+            for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+                if (captainsShip.getCargo().get(i).getTreasureID() == choice) {
+                    captainsShip.setHitPoint(captainsShip.getHitPoint() + captainsShip.getCargo().get(i).getValue());
+                    captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                }
             }
-        }
-        //TODO: ellenőrzés a valid bevitelről
+        }while (!isValidForRepair(choice,captainsShip));
     }
 
     public void installCannons(Ship captainsShip){
@@ -218,16 +219,17 @@ public class RepairBoat {
 
         int choice = scanner.nextInt();
 
-        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
-            if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("1")){
-                captainsShip.setNumberOfCannons(captainsShip.getNumberOfCannons() + 1);
-                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
-            }else if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("2")){
-                captainsShip.setNumberOfCannons(captainsShip.getNumberOfCannons() + 2);
-                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+        do {
+            for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+                if (captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("1")) {
+                    captainsShip.setNumberOfCannons(captainsShip.getNumberOfCannons() + 1);
+                    captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                } else if (captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("2")) {
+                    captainsShip.setNumberOfCannons(captainsShip.getNumberOfCannons() + 2);
+                    captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                }
             }
-        }
-        //TODO: ellenőrzés a valid bevitelről
+        }while (!isValidForInstallCannon(choice, captainsShip));
     }
 
     public void fillRum(Captain captain){
@@ -240,19 +242,21 @@ public class RepairBoat {
 
         int choice = scanner.nextInt();
 
-        for (int i = 0; i < captainsShip.getCargo().size(); i++) {
-            if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("7")){
-                captain.setRumOwned(captain.getRumOwned() + 7);
-                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
-            }else if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("14")){
-                captain.setRumOwned(captain.getRumOwned() + 14);
-                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
-            }else if(captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("21")){
-                captain.setRumOwned(captain.getRumOwned() + 21);
-                captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+
+        do {
+            for (int i = 0; i < captainsShip.getCargo().size(); i++) {
+                if (captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("7")) {
+                    captain.setRumOwned(captain.getRumOwned() + 7);
+                    captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                } else if (captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("14")) {
+                    captain.setRumOwned(captain.getRumOwned() + 14);
+                    captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                } else if (captainsShip.getCargo().get(i).getTreasureID() == choice && captainsShip.getCargo().get(i).getName().contains("21")) {
+                    captain.setRumOwned(captain.getRumOwned() + 21);
+                    captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                }
             }
-        }
-        //TODO: ellenőrzés a valid bevitelről
+        }while (!isValidForFillRum(choice, captainsShip));
     }
 
     /** Ellenőrzi, hogy a válsztott elem alkalmas-e a javításra.
@@ -263,6 +267,8 @@ public class RepairBoat {
             if(captainsShip.getCargo().get(i).getTreasureID() == choice &&
                     captainsShip.getCargo().get(i).getValue() != 0){
                 return true;
+            }else{
+                System.out.println("The chosen interaction is invalid.");
             }
         }
         return false;
@@ -277,9 +283,10 @@ public class RepairBoat {
                     captainsShip.getCargo().get(i).getName().contains("cannon") &&
                     captainsShip.getCargo().get(i).getType().equals(TreasureType.EQUIPMENT)){
                 return true;
+            }else{
+                System.out.println("The chosen interaction is invalid.");
             }
         }
-
         return false;
     }
 
@@ -292,9 +299,10 @@ public class RepairBoat {
                     captainsShip.getCargo().get(i).getName().contains("rum") &&
                     captainsShip.getCargo().get(i).getType().equals(TreasureType.EQUIPMENT)){
                 return true;
+            }else{
+                System.out.println("The chosen interaction is invalid.");
             }
         }
-
         return false;
     }
 
