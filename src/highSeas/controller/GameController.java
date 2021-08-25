@@ -3,7 +3,9 @@ package highSeas.controller;
 import highSeas.characters.PlayableCharacters;
 import highSeas.crew.Captain;
 import highSeas.enums.Rum;
+import highSeas.events.Kokko;
 import highSeas.events.RepairBoat;
+import highSeas.events.Storm;
 import highSeas.seas.BattleField;
 
 import java.util.ArrayList;
@@ -54,8 +56,15 @@ public class GameController {
                     battle.shipBattle(captain, getRandomCaptain(captainList), dice);
                     break;
                 case 2:
-                    RepairBoat repairBoat = new RepairBoat(); // csak tesztelésre
-                    repairBoat.repairBoat(captain);
+                    //RepairBoat repairBoat = new RepairBoat(); // csak tesztelésre
+                    //repairBoat.repairBoat(captain);
+
+                    //Kokko kokko = new Kokko();
+                    //kokko.theKokkoWillTakeYou(captain);
+
+                    Storm storm = new Storm();
+                    storm.storm(captain, dice);
+
                     break;
                 case 3:
                     battle.boardBattle(captain, getRandomCaptain(captainList), dice);

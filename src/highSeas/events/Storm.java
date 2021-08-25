@@ -37,7 +37,7 @@ public class Storm {
         }else if(choice == 3){
             callKokko(captain);
         }else if(choice == 4){
-
+            fixCannons(captain, dice);
         }
 
     }
@@ -62,6 +62,7 @@ public class Storm {
             System.out.println("It didn't help much against the storm. The mast broke in half, the ship suffered " +
                     "severe injuries.");
             captain.getShip().setHitPoint(1);
+            captain.getShip().updateState();
             System.out.println("HP of " + captain.getShip().getName() + " is : " + captain.getShip().getHitPoint() + ".");
             System.out.println("Condition of " + captain.getShip().getName() + " is : " + captain.getShip().getState() + ".");
             System.out.println();
@@ -72,6 +73,7 @@ public class Storm {
 
             captain.getShip().setNumberOfCannons(captain.getShip().getNumberOfCannons() - lostCannon);
             captain.getShip().setHitPoint(captain.getShip().getHitPoint() - 200);
+            captain.getShip().updateState();
 
             if(captain.getShip().getHitPoint() <= 0){
                 System.out.println("Unfortunately, the ship couldn't stand the storm and sank with the entire crew and the captain.");
@@ -108,7 +110,7 @@ public class Storm {
             int minusHP = dice.throwDice6();
 
             System.out.println("The sails were successfully retracted by the crew. The ship survived the storm, " +
-                    "but some cannonball escaped causing injury to all members of the crew. At least, you don’t " +
+                    "but some cannonball escaped causing injury to all members of the crew by " + minusHP + " HP. At least, you don’t " +
                     "even have to wash the deck today.");
 
             for (int i = 0; i < captain.getShip().getCrew().size(); i++) {
@@ -125,6 +127,10 @@ public class Storm {
     }
 
     private void fixCannons(Captain captain, Dice dice){
+
+        int damage = dice.throwDice20();
+
+        System.out.println("The cannons were successfully stabilized by the crew, but the sails were torn apart by the wind.");
 
     }
 }
