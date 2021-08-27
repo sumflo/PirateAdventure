@@ -65,7 +65,6 @@ public class Captain extends Pirate{
     private void giveRumToPirate(Pirate happyPirate){
 
         if(this.rumOwned > 0) {
-
             if (happyPirate.getDrunkLevel().level == 0) {
                 happyPirate.setDrunkLevel(Rum.tipsy);
             } else if (happyPirate.getDrunkLevel().level == 1) {
@@ -85,7 +84,6 @@ public class Captain extends Pirate{
     }
 
     private void drinkToCrew(){
-
         if(this.rumOwned > 0) {
 
             if (this.getDrunkLevel().level == 0) {
@@ -103,6 +101,7 @@ public class Captain extends Pirate{
         }
 
         System.out.println("Captain " + this.getName() + " is " + this.getDrunkLevel() + "."); // csak önellenőrzés
+        System.out.println();
     }
 
     public Ship getShip() {

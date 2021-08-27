@@ -70,6 +70,7 @@ public class Storm {
             int lostCannon = (int) ((Math.random() * (3 - 1)) + 1);
 
             System.out.println("It didn't help much against the storm. The ship suffered severe injuries." + lostCannon + " cannon(s) escaped and fell into the sea.");
+            System.out.println();
 
             captain.getShip().setNumberOfCannons(captain.getShip().getNumberOfCannons() - lostCannon);
             captain.getShip().setHitPoint(captain.getShip().getHitPoint() - 200);
@@ -99,6 +100,7 @@ public class Storm {
             System.out.println("The sails were successfully retracted by the crew. The ship survived the storm " +
                     "without a single scratch. Plus, you don’t even have to wash the deck today.");
             System.out.println("The life points of each crew member were increased by " + bonusHP + ".");
+            System.out.println();
 
             for (int i = 0; i < captain.getShip().getCrew().size(); i++) {
                 captain.getShip().getCrew().get(i).setMaxHealthPoint(captain.getShip().getCrew().get(i).getMaxHealthPoint() + bonusHP);
@@ -112,6 +114,7 @@ public class Storm {
             System.out.println("The sails were successfully retracted by the crew. The ship survived the storm, " +
                     "but some cannonball escaped causing injury to all members of the crew by " + minusHP + " HP. At least, you don’t " +
                     "even have to wash the deck today.");
+            System.out.println();
 
             for (int i = 0; i < captain.getShip().getCrew().size(); i++) {
                 captain.getShip().getCrew().get(i).setHealthPoint(captain.getShip().getCrew().get(i).getHealthPoint() + minusHP);
@@ -131,6 +134,7 @@ public class Storm {
         int damage = dice.throwDice20();
 
         System.out.println("The cannons were successfully stabilized by the crew, but the sails were torn apart by the wind.");
+        System.out.println();
 
     }
 }

@@ -27,7 +27,7 @@ public class Kokko {
 
         if(choice == 1){
             System.out.println("Uhh, The Kókkó is gone. The fog dissipated. Captain " + captain.getName() +
-                    " continued his journey safely in search of the ultimate treasure.");
+                    " continued his journey safely in search of the ultimate treasure.\n");
         }else if(choice == 2){
             System.out.println("The Kókkó grabbed Captain " + captain.getName() + " and took him away.");
             captain.setAlive(false);

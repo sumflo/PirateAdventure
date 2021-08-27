@@ -23,6 +23,7 @@ public class PlayableCharacters {
         captains = docreader.convertDocToCaptainArrayList(FileRouting.getSourceCaptain());
     }
 
+    //TODO: random + dice 10 strength minden kapiánynak, és random dice20 HP
     public void setCaptainsShips(){
         DocReader docreader = new DocReader();
         List<Ship> ships = docreader.convertDocToShipArrayList(FileRouting.getSourceShip());
@@ -35,6 +36,7 @@ public class PlayableCharacters {
         }
     }
 
+    //TODO: random + dice 6 strength minden kalóznak, és random dice10 HP
     public void setCaptainsCrews(){
         DocReader docreader = new DocReader();
         List<Pirate> pirates = docreader.convertDocToPirateArrayList(FileRouting.getSourcePirate());

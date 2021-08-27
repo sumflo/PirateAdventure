@@ -4,12 +4,8 @@ import highSeas.characters.PlayableCharacters;
 import highSeas.crew.Captain;
 import highSeas.enums.Rum;
 import highSeas.events.HappyNight;
-import highSeas.events.Kokko;
-import highSeas.events.RepairBoat;
-import highSeas.events.Storm;
 import highSeas.seas.BattleField;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -62,7 +58,7 @@ public class GameController {
                     break;
                 case 3:
                     battle.boardBattle(captain, getRandomCaptain(captainList), dice);
-                    happyNight.feast(captain);
+                    happyNight.feast(captain, dice);
                     break;
                 default:
                     System.out.println("You are the emperor of the life, if you got this far.");
@@ -81,13 +77,13 @@ public class GameController {
         System.out.println("If you want to take part in some adventures, sea battles, and want to find the ultimate " +
                 "treasure, you are in the best place.");
         System.out.println("To get the ultimate treasure, you can fight water or board battles, but you can even sail " +
-                "peacefully waiting for the events that fate will bring in your way.");
+                "peacefully waiting for the events that fate will bring in your way.\n");
     }
 
 
     /** Választható kapitányok megjelenítése, id bekérése és visszaadása. */
     private int getChosenCaptainID(){
-        System.out.println("When you are ready for a new adventure, choose your captain!");
+        System.out.println("When you are ready for a new adventure, choose your captain!\n");
         Scanner scanner = new Scanner(System.in);
         System.out.println( "(0) Exit the game.\n" +
                 "(1) Bartholomew Roberts\n"+
