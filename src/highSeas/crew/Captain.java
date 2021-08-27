@@ -53,15 +53,13 @@ public class Captain extends Pirate{
         this.rumOwned += rumLoot;
     }
 
-    public void giveRumToEveryone(int roundOfShot){
+    public void giveRumToEveryone(){
 
-        for (int i = 0; i < roundOfShot; i++) {
-            for (int j = 0; j < this.ship.getCrew().size(); j++) {
-                giveRumToPirate(this.ship.getCrew().get(j));
-            }
-
-            drinkToCrew();
+        for (int j = 0; j < this.ship.getCrew().size(); j++) {
+            giveRumToPirate(this.ship.getCrew().get(j));
         }
+        drinkToCrew();
+
     }
 
     private void giveRumToPirate(Pirate happyPirate){

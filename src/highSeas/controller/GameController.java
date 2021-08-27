@@ -3,6 +3,7 @@ package highSeas.controller;
 import highSeas.characters.PlayableCharacters;
 import highSeas.crew.Captain;
 import highSeas.enums.Rum;
+import highSeas.events.HappyNight;
 import highSeas.events.Kokko;
 import highSeas.events.RepairBoat;
 import highSeas.events.Storm;
@@ -20,6 +21,7 @@ public class GameController {
         BattleField battle = new BattleField();
         EventController event = new EventController();
         Dice dice = new Dice();
+        HappyNight happyNight = new HappyNight();
 
         PlayableCharacters chars = new PlayableCharacters();
         chars.setCaptainsShips();
@@ -56,18 +58,11 @@ public class GameController {
                     battle.shipBattle(captain, getRandomCaptain(captainList), dice);
                     break;
                 case 2:
-                    //RepairBoat repairBoat = new RepairBoat(); // csak tesztelésre
-                    //repairBoat.repairBoat(captain);
-
-                    //Kokko kokko = new Kokko();
-                    //kokko.theKokkoWillTakeYou(captain);
-
-                    Storm storm = new Storm();
-                    storm.storm(captain, dice);
-
+                    event.randomEvent(captain,dice);
                     break;
                 case 3:
                     battle.boardBattle(captain, getRandomCaptain(captainList), dice);
+                    happyNight.feast(captain);
                     break;
                 default:
                     System.out.println("You are the emperor of the life, if you got this far.");
@@ -75,6 +70,8 @@ public class GameController {
             }
 
         }
+
+        //TODO: A játék lezárása egy lezáró eventel (pl endGame)
 
     }
 

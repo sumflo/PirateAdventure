@@ -312,12 +312,16 @@ public class RepairBoat {
      * + van-e a rakományban ilyen elem */
     private boolean isValidForFillRum(int choice, Ship captainsShip){
 
-        Treasure chosenTreasure = new Treasure();
+        Treasure chosenTreasure = null;
 
         for (int i = 0; i < captainsShip.getCargo().size(); i++) {
             if (captainsShip.getCargo().get(i).getTreasureID() == choice) {
                 chosenTreasure = captainsShip.getCargo().get(i);
             }
+        }
+
+        if(chosenTreasure == null){ //át kell írni majd
+            return false;
         }
 
         if(chosenTreasure.getName().contains("rum") && chosenTreasure.getType().equals(TreasureType.EQUIPMENT)){
