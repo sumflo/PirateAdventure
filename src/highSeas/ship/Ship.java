@@ -3,7 +3,6 @@ package highSeas.ship;
 import highSeas.controller.Dice;
 import highSeas.crew.Pirate;
 import highSeas.enums.Condition;
-import highSeas.enums.TreasureType;
 import highSeas.treasure.Treasure;
 
 import java.util.ArrayList;
@@ -52,8 +51,18 @@ public class Ship {
                 + "Number of cannons: " + this.numberOfCannons + "\n"
                 + "Condition: " + this.state + "\n"
                 + "Cargo: " + this.cargo + "\n"
-                + "Crew: " + this.crew);
+                + "Crew: " + getCrewNames());
 
+    }
+
+    private List<String> getCrewNames(){
+        List<String> pirateNames = new ArrayList<>();
+
+        for (int i = 0; i < this.crew.size(); i++) {
+            pirateNames.add(this.crew.get(i).getName());
+        }
+
+        return pirateNames;
     }
 
     public void showCargo(){

@@ -22,7 +22,7 @@ public class Captain extends Pirate{
 
         String captainData = "Name: " + this.getName()+ nl
                 + "----------------------------------------" + nl
-                + "Captain's name: " + this.getCaptainID() + nl
+                + "ID: " + this.getCaptainID() + nl
                 + "Strength: " + this.getStrength() + nl
                 + "Max HP: " + this.getMaxHealthPoint() + nl
                 + "HP: " + this.getHealthPoint() + nl

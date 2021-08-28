@@ -6,10 +6,10 @@ import highSeas.crew.Captain;
 public class Kraken {
 
     public void krakenAppears(Captain captain, Dice dice){
-        System.out.println("Surprise Motherfucker!");
+        System.out.println("Surprise Here is the Kraken!");
     }
 
-    /*private List<String> events = new ArrayList<>();
+    /*
 
     public void krakenAttack(Captain captain){
         System.out.println("Suddenly the sea begins to rage. Nowhere is a cloud in the sky, not even the wind blowing." +

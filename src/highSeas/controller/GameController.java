@@ -93,17 +93,23 @@ public class GameController {
     private int getChosenCaptainID(){
         System.out.println("When you are ready for a new adventure, choose your captain!\n");
         Scanner scanner = new Scanner(System.in);
-        System.out.println( "(0) Exit the game.\n" +
-                "(1) Bartholomew Roberts\n"+
-                "(2) Calico Jack\n"+
-                "(3) Csen Ji-sao\n"+
-                "(4) Edward Teach\n"+
-                "(5) Grace O'Malley\n"+
-                "(6) Jeanne de Clisson\n"+
-                "(7) Kuo-hszing-je\n"+
-                "(8) Sir Francis Drake\n"+
-                "(9) Sir Henry Morgan\n"+
-                "(10) Zheng Yi Sao\n");
+        int interaction;
+
+        do{
+            System.out.println( "(0) Exit the game.\n" +
+                    "(1) Bartholomew Roberts\n"+
+                    "(2) Calico Jack\n"+
+                    "(3) Csen Ji-sao\n"+
+                    "(4) Edward Teach\n"+
+                    "(5) Grace O'Malley\n"+
+                    "(6) Jeanne de Clisson\n"+
+                    "(7) Kuo-hszing-je\n"+
+                    "(8) Sir Francis Drake\n"+
+                    "(9) Sir Henry Morgan\n"+
+                    "(10) Zheng Yi Sao\n");
+            interaction = scanner.nextInt();
+        }while(!isValidCaptain(interaction));
+
         return scanner.nextInt();
     }
 
@@ -119,6 +125,15 @@ public class GameController {
         }
 
         return null;
+    }
+
+    private boolean isValidCaptain(int interaction){
+
+        if(interaction >= 0 && interaction <= 10){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     private Captain getRandomCaptain(List<Captain> captainList){
