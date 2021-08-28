@@ -3,6 +3,7 @@ package highSeas.controller;
 import highSeas.characters.PlayableCharacters;
 import highSeas.crew.Captain;
 import highSeas.enums.Rum;
+import highSeas.events.EndGame;
 import highSeas.events.HappyNight;
 import highSeas.seas.BattleField;
 
@@ -18,6 +19,7 @@ public class GameController {
         EventController event = new EventController();
         Dice dice = new Dice();
         HappyNight happyNight = new HappyNight();
+        EndGame endGame = new EndGame();
 
         PlayableCharacters chars = new PlayableCharacters();
         chars.setCaptainsShips();
@@ -26,7 +28,7 @@ public class GameController {
 
         List<Captain> captainList = chars.getCaptains();
 
-        int round = 10;
+        int round = 0;
 
         gameMaster_introduction();
         int chosenID = getChosenCaptainID();
@@ -39,7 +41,7 @@ public class GameController {
 
         gameMaster_startGame(captain);
 
-        for (int i = round; i > 0; i--) {
+        for (int i = 10; i > 0; i--) {
 
             if(!captain.isAlive()){
                 break;
@@ -58,16 +60,22 @@ public class GameController {
                     break;
                 case 3:
                     battle.boardBattle(captain, getRandomCaptain(captainList), dice);
-                    happyNight.feast(captain, dice);
+                    if(captain.isAlive()){
+                        happyNight.feast(captain, dice);
+                    }
                     break;
                 default:
                     System.out.println("You are the emperor of the life, if you got this far.");
                     return;
             }
 
+            round++;
+
         }
 
-        //TODO: A játék lezárása egy lezáró eventel (pl endGame)
+        if (round == 10){
+            endGame.theLastAdventure(captain, dice);
+        }
 
     }
 

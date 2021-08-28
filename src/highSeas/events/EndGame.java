@@ -11,7 +11,7 @@ public class EndGame {
 
         System.out.println("Winding the azure sea beyond dangerous waters, beyond murderous vortices, beyond \n" +
                 "the cliffs of sirens on the edge of the world an island appears on the horizon. \n " +
-                " - Captain! Land on the horizon! - howls "+ captain.getShip().getCrew().get(4) + ".\n" +
+                "- Captain! Land on the horizon! - howls "+ captain.getShip().getCrew().get(4).getName() + ".\n" +
                 " - WRAAA!!! - roars the crew. \n" +
                 " - Pirates, we're docking! - shouts Captain " + captain.getName() + ".\n");
 
@@ -78,6 +78,12 @@ public class EndGame {
     }
 
     private void pirateVillage(Captain captain){
-        System.out.println();
+        System.out.println("The crew didn't leave the captain alone. They also stayed on the island. \n" +
+                "It turned out that the woman of divine beauty on the island was not alone, \n" +
+                "she merely came to maintain treasures. She was a siren, but she and her sisters were cursed. \n" +
+                "She have to live eternal life on the island with her sisters until she find true love. \n" +
+                "The love also arrived. Captain " + captain.getName() + " fell in love with the beautiful woman at first sight. \n" +
+                "All pirates also found happiness and love with a wonderful woman. Many of them also had children. \n" +
+                "It so happened that on the tiny island on the edge of the world, a secret village of pirates was created.");
     }
 }
