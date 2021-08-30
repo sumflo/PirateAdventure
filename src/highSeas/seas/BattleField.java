@@ -149,6 +149,7 @@ public class BattleField {
         }
     }
 
+    /** A kapitányok összecsapása.*/
     private void captainFight(Captain playerCaptain, Captain enemyCaptain, Dice dice){
 
         while (playerCaptain.getHealthPoint() > 0 && enemyCaptain.getHealthPoint() > 0) {
