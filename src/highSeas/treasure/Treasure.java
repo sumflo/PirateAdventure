@@ -2,6 +2,12 @@ package highSeas.treasure;
 
 import highSeas.enums.TreasureType;
 
+/** A kincsek típusuktól(TreasureType) függően vagy egy-egy kapitányhoz tartoznak kezdéskor, és csak 1 példány jelenik
+ * meg egy adott fajtából(name && treasureID),vagy a játék "betöltésekor" random generálódnak le (db, fajta).
+ * A kincsekkel kereskedni lehet -->> javítani, rumkészletet tölteni, ágyút felszerelni, valamint
+ * fontos szerepük lehet az összecsapások, és az eventek során -->> bizonyos kincsek biztosítják a túlélést,
+ * ezért nem érdemes "eladni" ész nélkül*/
+
 public class Treasure {
 
     private int treasureID;

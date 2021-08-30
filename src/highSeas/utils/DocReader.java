@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**Ez az osztály a dokumentumok beolvasásáért, és a belőlük nyert információ feldolgozásáért felel.
+ * Alapvetően kétféle metódus van. 1.-->> beolvasott sorokból példányosítani tud, 2.--> listába rendez az első segítségével*/
+
 public class DocReader {
 
     public List<Captain> convertDocToCaptainArrayList(String filename){

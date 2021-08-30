@@ -3,11 +3,15 @@ package highSeas.ship;
 import highSeas.controller.Dice;
 import highSeas.crew.Pirate;
 import highSeas.enums.Condition;
+import highSeas.enums.TreasureType;
 import highSeas.treasure.Treasure;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/** A hajó tulajdonképpen kapcsolótáblaként szolgál a legénység és a kapitány között.
+ * A hajók csatázni tudnak egymással. Hordozzák a rakományt (Treasure-ök) és a legénységet (Pirate-ek).
+ * Azonos ID-vel rendelkeznek, mint a kapitányuk.*/
 public class Ship {
 
     private String name;
@@ -22,15 +26,14 @@ public class Ship {
     public Ship() {
     }
 
+    /** A hajók támadóerő + ágyúk számaszor 6-os "kockával" sebeznek(hasonlóan a kalandjátékokhoz).
+     * Ha a hajó rakománya közt élőholt majom van, akkor Különös dolgok történhetnek vízi csata közben.*/
     public void attack(Ship enemyShip, Dice dice){
 
         int damage = this.attackPower + this.numberOfCannons * (dice.throwDice12());
 
         if(isUndeadMonkeyOnTheBoard(this.cargo)){
-            int throwResult = dice.throwDice20();
-            if(throwResult == 1){
-                System.out.println("Oh no! The undead monkey jumped on the Captain " +  /*this.crew.get(0).getCaptain() +*/ "'s head and took his hoe. The whole crew started chasing it. All the cannons were set aside.");
-            }
+            undeadMonkeyAttack(enemyShip, dice);
         }else{
             enemyShip.setHitPoint(enemyShip.getHitPoint() - damage);
             System.out.println(this.name + " damaged " + damage + ".");
@@ -40,7 +43,51 @@ public class Ship {
 
     }
 
-    //TODO: toString
+    /** Az élőholt majom 5% eséllyel a kapitány fejére ugrik, a kapitány pedig félre tüzel.
+     * Van 0,1% esély, hogy jön a semmiből egy rózsaszín bárány, és megahadályozza a félretüzelést, de
+     * ha ez megtörténi, akkor onnantól a bárány további bonyadalmakat okozhat...*/
+    private void undeadMonkeyAttack(Ship enemyShip, Dice dice){
+
+        int damage = this.attackPower + this.numberOfCannons * (dice.throwDice12());
+        int throwResult = dice.throwDice20();
+        int easterEggChance = (int) ((Math.random() * (1001 - 1)) + 1);
+
+        if(throwResult == 1){
+            System.out.println("Oh no! The undead monkey jumped on the Captain " +  /*this.crew.get(0).getCaptain() +*/ "'s head and took his hoe. The whole crew started chasing it. All the cannons were set aside.\n");
+        }else if(throwResult == 1 && easterEggChance == 666 && !haveLamb()){
+
+            System.out.println("Oh no! The undead monkey jumped on the captain's head. But out of nowhere, a pink lamb suddenly appeared and ate the undead monkey.");
+            System.out.println("Unfortunately a few minutes later the undead monkey sprouted from the lamb's stomach ...");
+            System.out.println("Interestingly, the pink lamb did not perish in its injuries, but became undead.\n");
+
+            Treasure easterEgg = new Treasure(21, "pink lamb", TreasureType.CURSE, 2500);
+            this.getCargo().add(easterEgg);
+
+            enemyShip.setHitPoint(enemyShip.getHitPoint() - damage);
+            System.out.println(this.name + " damaged " + damage + ".");
+            System.out.println(enemyShip.getName() + " has " + enemyShip.getHitPoint() + " HP now.");
+            System.out.println();
+        }else{
+            enemyShip.setHitPoint(enemyShip.getHitPoint() - damage);
+            System.out.println(this.name + " damaged " + damage + ".");
+            System.out.println(enemyShip.getName() + " has " + enemyShip.getHitPoint() + " HP now.");
+            System.out.println();
+        }
+    }
+
+    /** Megvizsgálja, hogy van-e már bárány a rakományban. */
+    private boolean haveLamb(){
+        for (int i = 0; i < this.cargo.size(); i++) {
+            if(this.cargo.get(i).getTreasureID() == 21){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
+    /** kiírja a hajó adatait. (máshol a toString-et használtam) */
     public void showShip(){
 
         System.out.println("Name: " + this.name + "\n"
@@ -55,6 +102,7 @@ public class Ship {
 
     }
 
+    /** Listába szedi a legénység neveit. */
     private List<String> getCrewNames(){
         List<String> pirateNames = new ArrayList<>();
 
@@ -65,6 +113,7 @@ public class Ship {
         return pirateNames;
     }
 
+    /** Kiírja a rakományt. */
     public void showCargo(){
         System.out.println("Your cargo:");
         System.out.println("-----------");
@@ -74,6 +123,7 @@ public class Ship {
         }
     }
 
+    /** HitPoint alapján beállítja a state-et */
     public void updateState(){
         if (this.hitPoint <= 0){
             this.state = Condition.wreck;
@@ -88,6 +138,7 @@ public class Ship {
         }
     }
 
+    /** Vizsgálja, hogy van-e élőholt majom a hajón. */
     private boolean isUndeadMonkeyOnTheBoard(List<Treasure> cargo){
         for (int i = 0; i < cargo.size(); i++) {
             if(cargo.get(i).getTreasureID() == 6){

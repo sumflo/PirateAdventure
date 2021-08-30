@@ -15,7 +15,7 @@ public class Captain extends Pirate{
     public Captain() {
     }
 
-    //TODO: toString
+    @Override
     public String toString(){
 
         String nl = System.getProperty("line.separator");
@@ -41,10 +41,26 @@ public class Captain extends Pirate{
 
         int damage = (this.getStrength() + this.getDrunkLevel().level * (dice.throwDice12()));
         enemyCaptain.setHealthPoint(enemyCaptain.getHealthPoint() - (this.getStrength() + damage));
+        int throwResult = dice.throwDice20();
 
-        System.out.println("Captain" + this.getName() + " damaged " + damage + ".");
-        System.out.println("Captain" + enemyCaptain.getName() + " has " + enemyCaptain.getHealthPoint() + " HP now.");
-        System.out.println();
+        if(throwResult == 10 && haveLamb()){
+            System.out.println("Oh no! Captain " + this.getName() + " stumbled on the pink undead lamb and cut himself with his own sword.");
+            System.out.println("Captain " + this.getName() + "suffered 5 HP injuries.");
+            this.setHealthPoint(this.getHealthPoint() - 5);
+        }else{
+            enemyCaptain.setHealthPoint(enemyCaptain.getHealthPoint() - (this.getStrength() + damage));
+            System.out.println("Captain" + this.getName() + " damaged " + damage + ".");
+            System.out.println("Captain" + enemyCaptain.getName() + " has " + enemyCaptain.getHealthPoint() + " HP now.");
+            System.out.println();
+        }
+
+    }
+
+    public boolean haveLamb(){
+        for (int i = 0; i < this.ship.getCargo().size(); i++) {
+            return this.ship.getCargo().get(i).getTreasureID() == 21;
+        }
+        return false;
     }
 
     /** az enemy rumkészletét nem szükséges 0-ra állítani, mivel nem foglalkozunk vele a továbbiakban.*/

@@ -209,6 +209,7 @@ public class RepairBoat {
             if (captainsShip.getCargo().get(i).getTreasureID() == choice) {
                 captainsShip.setHitPoint(captainsShip.getHitPoint() + captainsShip.getCargo().get(i).getValue());
                 captainsShip.getCargo().remove(captainsShip.getCargo().get(i));
+                captainsShip.updateState();
             }
         }
     }

@@ -73,7 +73,7 @@ public class GameController {
 
         }
 
-        if (round == 10){
+        if (round == 10 && captain.isAlive()){
             endGame.theLastAdventure(captain, dice);
         }
 

@@ -1,5 +1,7 @@
 package highSeas.utils;
 
+
+/** Ez a class csupán az elérési útvonalat tárolja. Akár ki is lehetne hagyni. Nem feltétlenül szükséges osztály, de én szeretem, ha "rend" van.*/
 public class FileRouting {
 
     private static final String SOURCE_DIR = "src/resources/";
